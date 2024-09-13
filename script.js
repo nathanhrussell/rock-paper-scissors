@@ -1,10 +1,13 @@
-const options = ["rock", "paper", "scissors"]
+const options = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     return options[Math.floor(Math.random() * options.length)];
 }
 
-// ASK FOR USER INPUT STATING THE AVAILABLE OPTIONS
-// CHECK IF USER INPUT IS A VALID OPTION
-// IF USER INPUT NOT VALID OPTION --> RETURN TRY AGAIN MESSAGE
-// IF USER INPUT VALID OPTION --> RETURN USER INPUT
+function getHumanChoice() {
+    let choice = prompt("Please enter 'rock', 'paper' or 'scissors' as your move.").toLowerCase();
+    while (options.includes(choice) != true) {
+        choice = prompt("Please enter 'rock', 'paper' or 'scissors' as your move.").toLowerCase();
+    }
+    return choice;
+}
