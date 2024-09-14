@@ -15,19 +15,16 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-
     if (humanChoice == "rock" && computerChoice == "paper") {
         console.log("Computer wins!");
         computerScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "rock" && computerChoice == "scissors") {
         console.log("You win!");
+        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "rock" && computerChoice == "rock") {
         console.log("It's a tie");
-        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "paper" && computerChoice == "scissors") {
         console.log("Computer wins!");
@@ -35,10 +32,10 @@ function playRound(humanChoice, computerChoice) {
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "paper" && computerChoice == "rock") {
         console.log("You win!");
+        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "paper" && computerChoice == "paper") {
         console.log("It's a tie");
-        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
         console.log("Computer wins!");
@@ -46,12 +43,14 @@ function playRound(humanChoice, computerChoice) {
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
         console.log("You win!");
+        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     } else if (humanChoice == "scissors" && computerChoice == "scissors") {
         console.log("It's a tie");
-        humanScore++;
         console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     }
+
+    // TO DO: CONSOLE.LOG THE COMPUTER'S MOVE TO MAKE TESTING EASIER THEN TEST ALL POSSIBLE OUTCOMES FROM ABOVE
 
 
 
@@ -72,4 +71,7 @@ function playRound(humanChoice, computerChoice) {
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
 }
