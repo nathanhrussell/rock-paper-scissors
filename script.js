@@ -18,6 +18,43 @@ function playRound(humanChoice, computerChoice) {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
 
+    if (humanChoice == "rock" && computerChoice == "paper") {
+        console.log("Computer wins!");
+        computerScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "rock" && computerChoice == "scissors") {
+        console.log("You win!");
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "rock" && computerChoice == "rock") {
+        console.log("It's a tie");
+        humanScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "paper" && computerChoice == "scissors") {
+        console.log("Computer wins!");
+        computerScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "paper" && computerChoice == "rock") {
+        console.log("You win!");
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "paper" && computerChoice == "paper") {
+        console.log("It's a tie");
+        humanScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        console.log("Computer wins!");
+        computerScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        console.log("You win!");
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    } else if (humanChoice == "scissors" && computerChoice == "scissors") {
+        console.log("It's a tie");
+        humanScore++;
+        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    }
+
+
+
     // IF HUMAN CHOICE IS ROCK AND COMPUTER CHOICE IS PAPER --> RETURN COMPUTER WINS MESSAGE AND COMPUTER SCORE PLUS ONE
     // IF HUMAN CHOICE IS ROCK AND COMPUTER CHOICE IS SCISSORS --> RETURN YOU WIN MESSAGE AND HUMAN SCORE PLUS ONE
     // IF HUMAN CHOICE IS ROCK AND COMPUTER CHOICE IS ROCK --> RETURN DRAW MESSAGE AND SCORES REMAIN THE SAME
@@ -31,7 +68,8 @@ function playRound(humanChoice, computerChoice) {
     // IF HUMAN CHOICE IS SCISSORS AND COMPUTER CHOICE IS SCISSORS --> RETURN DRAW MESSAGE AND SCORES REMAIN THE SAME
 
 
-}
+
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
+}
