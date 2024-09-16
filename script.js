@@ -8,81 +8,56 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let choice = prompt("Please enter 'rock', 'paper' or 'scissors' as your move.").toLowerCase();
-    while (options.includes(choice) != true) {
-        choice = prompt("Please enter 'rock', 'paper' or 'scissors' as your move.").toLowerCase();
+    
+    // Reprompt until a valid choice is made
+    while (!options.includes(choice)) {
+        choice = prompt("Invalid choice! Please enter 'rock', 'paper', or 'scissors'.").toLowerCase();
     }
+    
     return choice;
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${computerChoice} beats ${humanChoice}.`)
-        console.log("Computer wins!");
-        computerScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "rock" && computerChoice == "scissors") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${humanChoice} beats ${computerChoice}.`)
-        console.log("You win!");
+    console.log(`The computer plays ${computerChoice}.`);
+    
+    // If it's a tie
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie.");
+    } 
+    // Check for human win scenarios
+    else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        console.log(`${humanChoice} beats ${computerChoice}. You win!`);
         humanScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "rock" && computerChoice == "rock") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log("It's a tie");
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "paper" && computerChoice == "scissors") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${computerChoice} beats ${humanChoice}.`)
-        console.log("Computer wins!");
+    } 
+    // Otherwise, the computer wins
+    else {
+        console.log(`${computerChoice} beats ${humanChoice}. Computer wins!`);
         computerScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "paper" && computerChoice == "rock") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${humanChoice} beats ${computerChoice}.`)
-        console.log("You win!");
-        humanScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "paper" && computerChoice == "paper") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log("It's a tie");
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "scissors" && computerChoice == "rock") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${computerChoice} beats ${humanChoice}.`)
-        console.log("Computer wins!");
-        computerScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "scissors" && computerChoice == "paper") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log(`${humanChoice} beats ${computerChoice}.`)
-        console.log("You win!");
-        humanScore++;
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-    } else if (humanChoice == "scissors" && computerChoice == "scissors") {
-        console.log(`The computer plays ${computerChoice}.`)
-        console.log("It's a tie");
-        console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     }
-    }
-
+    
+    console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+}
 
 function playGame() {
-    let gameCount = 0;
-    while (gameCount < 5) {
+    let rounds = 5;
+    
+    for (let i = 0; i < rounds; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-        gameCount++;
-    }
-    console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
-    if (computerScore > humanScore) {
-        console.log("The computer is the winner!");
-    } else if (humanScore > computerScore) {
-        console.log("Congratulations! You are the winner!");
-    } else if (humanScore == computerScore) {
-        console.log("The spoils are shared! The match ends in a draw!");
     }
     
+    console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
+    
+    if (computerScore > humanScore) {
+        console.log("The computer is the overall winner!");
+    } else if (humanScore > computerScore) {
+        console.log("Congratulations! You are the overall winner!");
+    } else {
+        console.log("The match ends in a draw!");
     }
-
+}
