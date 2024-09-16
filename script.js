@@ -69,11 +69,20 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     let gameCount = 0;
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    while (gameCount < 5) {
+    while (gameCount != 5) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         gameCount++;
     }
+    console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
+    if (computerScore > humanScore) {
+        console.log("The computer is the winner!");
+    } else if (humanScore > computerScore) {
+        console.log("Congratulations! You are the winner!");
+    } else if (humanScore == computerScore) {
+        console.log("The spoils are shared! The match ends in a draw!");
+    }
+    
     }
 
