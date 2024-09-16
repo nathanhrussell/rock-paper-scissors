@@ -69,7 +69,7 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     let gameCount = 0;
-    while (gameCount != 5) {
+    while (gameCount < 5) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
