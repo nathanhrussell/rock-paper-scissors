@@ -41,23 +41,3 @@ function playRound(humanChoice, computerChoice) {
     
     console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
 }
-
-function playGame() {
-    let rounds = 5;
-    
-    for (let i = 0; i < rounds; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-    
-    console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
-    
-    if (computerScore > humanScore) {
-        console.log("The computer is the overall winner!");
-    } else if (humanScore > computerScore) {
-        console.log("Congratulations! You are the overall winner!");
-    } else {
-        console.log("The match ends in a draw!");
-    }
-}
