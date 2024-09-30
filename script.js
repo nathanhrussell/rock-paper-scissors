@@ -40,4 +40,23 @@ function playRound(humanChoice, computerChoice) {
     }
     
     console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+
 }
+
+let rockBtn = document.createElement("button");
+rockBtn.textContent = "Rock";
+const rockBtnContainer = document.getElementById("button-container");
+rockBtnContainer.appendChild(rockBtn);
+
+let paperBtn = document.createElement("button");
+paperBtn.textContent = "Paper";
+const paperBtnContainer = document.getElementById("button-container");
+paperBtnContainer.appendChild(paperBtn);
+
+let scissorsBtn = document.createElement("button");
+scissorsBtn.textContent = "Scissors";
+const scissorsBtnContainer = document.getElementById("button-container");
+scissorsBtnContainer.appendChild(scissorsBtn);
+
+//TODO: ADD EVENT LISTENERS FOR EACH BUTTON TO CALL PLAYROUND FUNCTION WITH CORRESPONDING PLAYERSELECTION ON CLICK
+
