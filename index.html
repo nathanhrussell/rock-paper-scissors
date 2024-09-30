@@ -6,6 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="script.js"></script>
+    <div id="container"></div>
+    <script src="script.js">
+        let rockDiv = document.getElementById("container");
+        let rockBtn = document.createElement("button");
+        let rockText = document.createElement("Rock");
+        rockBtn.appendChild(rockText);
+        rockDiv.appendChild(rockBtn);
+    </script>
 </body>
 </html>
