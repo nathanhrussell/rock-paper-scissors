@@ -58,5 +58,10 @@ scissorsBtn.textContent = "Scissors";
 const scissorsBtnContainer = document.getElementById("button-container");
 scissorsBtnContainer.appendChild(scissorsBtn);
 
+rockBtn.addEventListener("click", () => {
+    playRound("rock", getComputerChoice());
+});
+
+
 //TODO: ADD EVENT LISTENERS FOR EACH BUTTON TO CALL PLAYROUND FUNCTION WITH CORRESPONDING PLAYERSELECTION ON CLICK
 
