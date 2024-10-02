@@ -30,6 +30,10 @@ function playRound(humanChoice, computerChoice) {
 
     let tieResultText = document.createTextNode("It's a tie.");
 
+    let humanWinText = document.createTextNode(`${humanChoice} beats ${computerChoice}. You win!`);
+
+    let computerWinText = document.createTextNode(`${computerChoice} beats ${humanChoice}. Computer wins!`);
+
     // If it's a tie
     if (humanChoice === computerChoice) {
         resultsDiv.appendChild(tieResultText);
@@ -40,12 +44,12 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`${humanChoice} beats ${computerChoice}. You win!`);
+        resultsDiv.appendChild(humanWinText);
         humanScore++;
     } 
     // Otherwise, the computer wins
     else {
-        console.log(`${computerChoice} beats ${humanChoice}. Computer wins!`);
+        resultsDiv.appendChild(computerWinText);
         computerScore++;
     }
     
