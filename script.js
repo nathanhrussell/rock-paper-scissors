@@ -25,11 +25,14 @@ function playRound(humanChoice, computerChoice) {
     let humanChoiceText = document.createTextNode(`You played ${humanChoice}.`);
     resultsDiv.appendChild(humanChoiceText);
 
-    console.log(`The computer plays ${computerChoice}.`);
-    
+    let computerChoiceText = document.createTextNode(`The computer plays ${computerChoice}.`);
+    resultsDiv.appendChild(computerChoiceText);
+
+    let tieResultText = document.createTextNode("It's a tie.");
+
     // If it's a tie
     if (humanChoice === computerChoice) {
-        console.log("It's a tie.");
+        resultsDiv.appendChild(tieResultText);
     } 
     // Check for human win scenarios
     else if (
