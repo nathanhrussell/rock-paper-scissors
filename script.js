@@ -34,6 +34,9 @@ function playRound(humanChoice, computerChoice) {
 
     let computerWinText = document.createTextNode(`${computerChoice} beats ${humanChoice}. Computer wins!`);
 
+    let scoreText = document.createTextNode(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+
+
     // If it's a tie
     if (humanChoice === computerChoice) {
         resultsDiv.appendChild(tieResultText);
@@ -53,9 +56,11 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
     
-    console.log(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    resultsDiv.appendChild(scoreText);;
 
 }
+
+// TDL: ADD CODE TO ANNOUNCE WINNER WHEN ONE PLAYER REACHES 5 VICTORIES WITH CORRESPONDING MESSAGE
 
 let rockBtn = document.createElement("button");
 rockBtn.textContent = "Rock";
