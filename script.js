@@ -71,6 +71,5 @@ scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
 
-
-//TODO: ADD EVENT LISTENERS FOR EACH BUTTON TO CALL PLAYROUND FUNCTION WITH CORRESPONDING PLAYERSELECTION ON CLICK
-
+let resultsDiv = document.createElement("div");
+const resultsDivContainer = document.getElementById("results-div");
