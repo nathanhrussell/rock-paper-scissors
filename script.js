@@ -18,7 +18,13 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    console.log(`You played ${humanChoice}.`);
+    let resultsDiv = document.createElement("div");
+    const resultsDivContainer = document.getElementById("results-div");
+    resultsDivContainer.appendChild(resultsDiv);
+
+    let humanChoiceText = document.createTextNode(`You played ${humanChoice}.`);
+    resultsDiv.appendChild(humanChoiceText);
+
     console.log(`The computer plays ${computerChoice}.`);
     
     // If it's a tie
@@ -70,6 +76,3 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
-
-let resultsDiv = document.createElement("div");
-const resultsDivContainer = document.getElementById("results-div");
