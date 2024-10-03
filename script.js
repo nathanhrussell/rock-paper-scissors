@@ -17,6 +17,11 @@ function getHumanChoice() {
     return choice;
 }
 
+function capitaliseFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+
 function playRound(humanChoice, computerChoice) {
     let resultsDiv = document.createElement("div");
     const resultsDivContainer = document.getElementById("results-div");
@@ -32,8 +37,8 @@ function playRound(humanChoice, computerChoice) {
     resultsDiv.appendChild(document.createElement("br"));
 
     let tieResultText = document.createTextNode("It's a tie.");
-    let humanWinText = document.createTextNode(`${humanChoice} beats ${computerChoice}. You win!`);
-    let computerWinText = document.createTextNode(`${computerChoice} beats ${humanChoice}. Computer wins!`);
+    let humanWinText = document.createTextNode(`${capitaliseFirstLetter(humanChoice)} beats ${computerChoice}. You win!`);
+    let computerWinText = document.createTextNode(`${capitaliseFirstLetter(computerChoice)} beats ${humanChoice}. Computer wins!`);
 
     // If it's a tie
     if (humanChoice === computerChoice) {
