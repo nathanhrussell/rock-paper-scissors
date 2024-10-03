@@ -29,16 +29,8 @@ function playRound(humanChoice, computerChoice) {
     resultsDiv.appendChild(computerChoiceText);
 
     let tieResultText = document.createTextNode("It's a tie.");
-
     let humanWinText = document.createTextNode(`${humanChoice} beats ${computerChoice}. You win!`);
-
     let computerWinText = document.createTextNode(`${computerChoice} beats ${humanChoice}. Computer wins!`);
-
-    let scoreText = document.createTextNode(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
-
-    let computerWinnerText = document.createTextNode("The computer has won five matches and is the winner!");
-
-    let humanWinnerText = document.createTextNode("Congratulations! You have won five matches and are the winner!");
 
     // If it's a tie
     if (humanChoice === computerChoice) {
@@ -50,30 +42,34 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        resultsDiv.appendChild(humanWinText);
         humanScore++;
+        resultsDiv.appendChild(humanWinText);
     } 
     // Otherwise, the computer wins
     else {
-        resultsDiv.appendChild(computerWinText);
         computerScore++;
+        resultsDiv.appendChild(computerWinText);
     }
-    
-    resultsDiv.appendChild(scoreText);;
+
+    let scoreText = document.createTextNode(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
+    resultsDiv.appendChild(scoreText);
 
     if(humanScore == 5) {
+        let humanWinnerText = document.createTextNode("Congratulations! You have won five matches and are the winner!");
         resultsDiv.appendChild(humanWinnerText);
-        return
+        computerScore = 0;
+        humanScore = 0;
     }
 
     if(computerScore == 5) {
+        let computerWinnerText = document.createTextNode("The computer has won five matches and is the winner!");
         resultsDiv.appendChild(computerWinnerText);
-        return
+        computerScore = 0;
+        humanScore = 0;
     }
 
-}
 
-// TDL: ADD CODE TO ANNOUNCE WINNER WHEN ONE PLAYER REACHES 5 VICTORIES WITH CORRESPONDING MESSAGE
+}
 
 let rockBtn = document.createElement("button");
 rockBtn.textContent = "Rock";
