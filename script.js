@@ -21,12 +21,15 @@ function playRound(humanChoice, computerChoice) {
     let resultsDiv = document.createElement("div");
     const resultsDivContainer = document.getElementById("results-div");
     resultsDivContainer.appendChild(resultsDiv);
+    resultsDiv.appendChild(document.createElement("br"));
 
     let humanChoiceText = document.createTextNode(`You played ${humanChoice}.`);
     resultsDiv.appendChild(humanChoiceText);
+    resultsDiv.appendChild(document.createElement("br"));
 
     let computerChoiceText = document.createTextNode(`The computer plays ${computerChoice}.`);
     resultsDiv.appendChild(computerChoiceText);
+    resultsDiv.appendChild(document.createElement("br"));
 
     let tieResultText = document.createTextNode("It's a tie.");
     let humanWinText = document.createTextNode(`${humanChoice} beats ${computerChoice}. You win!`);
@@ -35,6 +38,7 @@ function playRound(humanChoice, computerChoice) {
     // If it's a tie
     if (humanChoice === computerChoice) {
         resultsDiv.appendChild(tieResultText);
+        resultsDiv.appendChild(document.createElement("br"));
     } 
     // Check for human win scenarios
     else if (
@@ -44,19 +48,23 @@ function playRound(humanChoice, computerChoice) {
     ) {
         humanScore++;
         resultsDiv.appendChild(humanWinText);
+        resultsDiv.appendChild(document.createElement("br"));
     } 
     // Otherwise, the computer wins
     else {
         computerScore++;
         resultsDiv.appendChild(computerWinText);
+        resultsDiv.appendChild(document.createElement("br"));
     }
 
     let scoreText = document.createTextNode(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
     resultsDiv.appendChild(scoreText);
+    resultsDiv.appendChild(document.createElement("br"));
 
     if(humanScore == 5) {
         let humanWinnerText = document.createTextNode("Congratulations! You have won five matches and are the winner!");
         resultsDiv.appendChild(humanWinnerText);
+        resultsDiv.appendChild(document.createElement("br"));
         computerScore = 0;
         humanScore = 0;
     }
@@ -64,6 +72,7 @@ function playRound(humanChoice, computerChoice) {
     if(computerScore == 5) {
         let computerWinnerText = document.createTextNode("The computer has won five matches and is the winner!");
         resultsDiv.appendChild(computerWinnerText);
+        resultsDiv.appendChild(document.createElement("br"));
         computerScore = 0;
         humanScore = 0;
     }
