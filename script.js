@@ -61,6 +61,16 @@ function playRound(humanChoice, computerChoice) {
     
     resultsDiv.appendChild(scoreText);;
 
+    if(humanScore == 5) {
+        resultsDiv.appendChild(humanWinnerText);
+        return
+    }
+
+    if(computerScore == 5) {
+        resultsDiv.appendChild(computerWinnerText);
+        return
+    }
+
 }
 
 // TDL: ADD CODE TO ANNOUNCE WINNER WHEN ONE PLAYER REACHES 5 VICTORIES WITH CORRESPONDING MESSAGE
@@ -91,24 +101,3 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
-
-
-
-// function playGame() {
-//     let gameCount = 0;
-//     while (gameCount < 5) {
-//         const humanSelection = getHumanChoice();
-//         const computerSelection = getComputerChoice();
-//         playRound(humanSelection, computerSelection);
-//         gameCount++;
-//     }
-//     console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
-//     if (computerScore > humanScore) {
-//         console.log("The computer is the winner!");
-//     } else if (humanScore > computerScore) {
-//         console.log("Congratulations! You are the winner!");
-//     } else if (humanScore == computerScore) {
-//         console.log("The spoils are shared! The match ends in a draw!");
-//     }
-    
-//     }
