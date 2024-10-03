@@ -36,6 +36,9 @@ function playRound(humanChoice, computerChoice) {
 
     let scoreText = document.createTextNode(`Current score: Computer: ${computerScore} Player: ${humanScore}`);
 
+    let computerWinnerText = document.createTextNode("The computer has won five matches and is the winner!");
+
+    let humanWinnerText = document.createTextNode("Congratulations! You have won five matches and are the winner!");
 
     // If it's a tie
     if (humanChoice === computerChoice) {
@@ -88,3 +91,24 @@ paperBtn.addEventListener("click", () => {
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
 });
+
+
+
+// function playGame() {
+//     let gameCount = 0;
+//     while (gameCount < 5) {
+//         const humanSelection = getHumanChoice();
+//         const computerSelection = getComputerChoice();
+//         playRound(humanSelection, computerSelection);
+//         gameCount++;
+//     }
+//     console.log(`Final score: Computer: ${computerScore} Player: ${humanScore}`);
+//     if (computerScore > humanScore) {
+//         console.log("The computer is the winner!");
+//     } else if (humanScore > computerScore) {
+//         console.log("Congratulations! You are the winner!");
+//     } else if (humanScore == computerScore) {
+//         console.log("The spoils are shared! The match ends in a draw!");
+//     }
+    
+//     }
